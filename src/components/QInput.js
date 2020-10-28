@@ -2,7 +2,7 @@ import React from "react";
 
 const QInput = ({ incorrect, correct, handleSelect }) => {
   return (
-    <div className="form-group">
+    <div className="form-check">
       {incorrect.map((option, i) => {
         return (
           <div key={i}>
