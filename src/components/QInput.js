@@ -1,25 +1,19 @@
 import React from "react";
 
-const QInput = () => {
+const QInput = ({ incorrect, correct, handleSelect }) => {
   return (
     <div className="form-group">
+      {incorrect.map((option, i) => {
+        return (
+          <div key={i}>
+            <input id={option} value={option} onClick={handleSelect} className="form-check-input" name="option" type="radio" />
+            <label htmlFor={option} className="form-check-label">{option}</label>
+          </div>
+        );
+      })}
       <div>
-        <input className="form-check-input" type="radio" />
-        <label className="form-check-label">option1</label>
-      </div>
-      <div>
-        <input className="form-check-input" type="radio" />
-        <label className="form-check-label">option2</label>
-      </div>
-
-      <div>
-        <input className="form-check-input" type="radio" />
-        <label className="form-check-label">option3</label>
-      </div>
-
-      <div>
-        <input className="form-check-input" type="radio" />
-        <label className="form-check-label">option4</label>
+        <input id={correct} value={correct} onClick={handleSelect} className="form-check-input" name="option" type="radio" />
+        <label htmlFor={correct} className="form-check-label">{correct}</label>
       </div>
     </div>
   );
