@@ -1,13 +1,16 @@
 import "./App.css";
 import GameBoard from "./components/GameBoard";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import Data from './data.json';
 
 function App() {
   const [startGame, setStartGame] = useState(false);
+  const [questions, setQuestions] = useState([]);
 
   const funcStart = (e) => {
     e.preventDefault();
     setStartGame(true);
+    setQuestions(Data);
   };
 
   return (
@@ -15,7 +18,7 @@ function App() {
       <h1>Tandem Trivia</h1>
 
       {startGame ? (
-        <GameBoard />
+        <GameBoard questions={questions} />
       ) : (
         <button
           type="button"
