@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import QCard from "./QCard";
 
-const GameBoard = ({ questions }) => {
+const GameBoard = ({ questions }, shuffle) => {
   const [score, setScore] = useState(0);
   const [selected, setSelected] = useState("");
   const [selectedInput, setSelectedInput] = useState(null);
@@ -62,10 +62,14 @@ const GameBoard = ({ questions }) => {
       {isAnswered && currentQ === questions[endOfGame - 1] ? (
         ""
       ) : (
-        <button 
-          id="submit" 
-          onClick={submitAnswer} 
-          className={(!isAnswered && selected === "") || isAnswered ? "btn btn-light disabled" : "btn btn-light"}
+        <button
+          id="submit"
+          onClick={submitAnswer}
+          className={
+            (!isAnswered && selected === "") || isAnswered
+              ? "btn btn-light disabled"
+              : "btn btn-light"
+          }
           disabled={(!isAnswered && selected === "") || isAnswered}
         >
           Submit Answer
@@ -87,7 +91,9 @@ const GameBoard = ({ questions }) => {
       )}
       {questions[nextIndex] === questions[endOfGame] && isAnswered ? (
         <div>
-          <p>Thanks for playing! Final Score: {score} / {questions.length}</p>
+          <p>
+            Thanks for playing! Final Score: {score} / {questions.length}
+          </p>
           <button
             type="button"
             className="btn btn-outline-dark"
@@ -100,7 +106,9 @@ const GameBoard = ({ questions }) => {
         ""
       )}
 
-      <h3>Score: {score} / {questions.length}</h3>
+      <h3>
+        Score: {score} / {questions.length}
+      </h3>
     </div>
   );
 };
