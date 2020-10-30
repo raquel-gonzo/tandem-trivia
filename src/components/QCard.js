@@ -7,7 +7,6 @@ const QCard = ({data, handleSelect, submitAnswer } ) => { // destructuring props
         <div>
             <h2>{data.question}</h2>
             <QInput incorrect={data.incorrect} correct={data.correct} handleSelect={handleSelect} />
-            <button onClick={submitAnswer} className="btn btn-light">Submit Answer</button>
         </div>
     );
 }
