@@ -4,15 +4,18 @@ import QCard from "./QCard";
 const GameBoard = ({ questions }) => {
   const [score, setScore] = useState(0);
   const [selected, setSelected] = useState("");
+  const [selectedInput, setSelectedInput] = useState(null);
   const [currentQ, setCurrentQ] = useState(questions[0]); // questions[1]
   const [answered, setAnswered] = useState(false);
 
   const handleSelect = (e) => {
     setSelected(e.target.value);
+    setSelectedInput(e.target);
   };
 
   const reset = () => {
     setSelected("");
+    selectedInput.checked = false;
     setAnswered(false);
   }
 
