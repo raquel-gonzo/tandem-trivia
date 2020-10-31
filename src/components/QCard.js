@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import QInput from "./QInput";
 
-const QCard = ({ data, handleSelect }) => {
+const QCard = ({ data, handleSelect, qNum }) => {
   // destructuring props (an object)
   const [allOptions, setAllOptions] = useState([]);
 
@@ -20,8 +20,9 @@ const QCard = ({ data, handleSelect }) => {
   }, [data]);
 
   return (
-    <div className="q-card">
-      <h2>{data.question}</h2>
+    <div >
+      <h2 id="qNum">Question {qNum}</h2>
+      <h3>{data.question}</h3>
       <QInput allOptions={allOptions} handleSelect={handleSelect} />
     </div>
   );

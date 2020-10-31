@@ -2,6 +2,7 @@
 
 .App {
   text-align: start;
+  font-family: 'Noto Serif TC', serif;
 }
 
 button.disabled {
@@ -39,8 +40,8 @@ button{
   margin-top: 5%;
 }
 
-#next-q-btn{
-  margin-left: 50px;
+#qNum{
+  text-decoration: underline;
 }
 
 body {
@@ -48,11 +49,8 @@ body {
   background-color: #fff7f3;
 }
 
-button, h1, h2, h3, h4, p, label{
-  font-family: 'Noto Serif TC', serif;
-}
 
-body, button, h1, h2, h3, h4, p, input, label { 
+body, button, h1, h2, h3, h4, span, p, input, label { 
   animation: fadeInAnimation ease 1s;
   animation-iteration-count: 1; 
   animation-fill-mode: forwards; 

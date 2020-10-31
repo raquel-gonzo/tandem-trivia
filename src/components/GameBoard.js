@@ -8,7 +8,7 @@ const GameBoard = ({ questions }, shuffle) => {
   const [currentQ, setCurrentQ] = useState(questions[0]); // questions[1]
   const [isAnswered, setIsAnswered] = useState(false);
   const [isCorrect, setIsCorrect] = useState('');
-  const endOfGame = questions.length;
+  const endOfGame = 10;
   const nextIndex = questions.indexOf(currentQ) + 1;
 
   const handleSelect = (e) => {
@@ -58,25 +58,8 @@ const GameBoard = ({ questions }, shuffle) => {
   return (
     <div>
       <div id="game-board">
-        <QCard data={currentQ} handleSelect={handleSelect} />
-        <div id="score-and-reveal">
-          <h3 id="score">
-            Score: {score} / {questions.length}
-          </h3>
-          { isCorrect === "correct" && isCorrect !== "" ? (
-            <h4>Correct!</h4>
-          ) : (
-            ''
-          )}
-          { isCorrect === "incorrect" && isCorrect !== "" ? (
-            <h4>Incorrect</h4>
-          ) : (
-            ''
-          )}
-        </div>
-      </div>
-
-      <div id="bottom-btns">
+        <div className="q-card">
+        <QCard data={currentQ} handleSelect={handleSelect} qNum={nextIndex}/>
         {isAnswered && currentQ === questions[endOfGame - 1] ? (
           ""
         ) : (
@@ -93,7 +76,26 @@ const GameBoard = ({ questions }, shuffle) => {
             Submit Answer
           </button>
         )}
-
+        </div>
+        <div id="score-and-reveal">
+          <h4 id="score">
+            Score: <br/>
+            {score} / {10}
+          </h4>
+          { isCorrect === "correct" && isCorrect !== "" ? (
+            <span>Correct!</span>
+          ) : (
+            ''
+          )}
+          { isCorrect === "incorrect" && isCorrect !== "" ? (
+            <span>Incorrect</span>
+          ) : (
+            ''
+          )}
+        </div>
+      </div>
+{/* ******************************************************************************* */}
+      <div>
         {isAnswered && currentQ !== questions[endOfGame - 1] ? (
           <button
             id="next-q-btn"
@@ -107,15 +109,15 @@ const GameBoard = ({ questions }, shuffle) => {
           ""
         )}
       </div>
-
+{/* ******************************************************************************* */}
       {questions[nextIndex] === questions[endOfGame] && isAnswered ? (
         <div>
           <p>
-            Thanks for playing! Final Score: {score} / {questions.length}
+            Thanks for playing! Final Score: {score} / {10}
           </p>
           <button
             type="button"
-            className="btn btn-outline-dark"
+            className="btn btn-dark"
             onClick={playAgain}
           >
             Play Again
