@@ -20,7 +20,7 @@ const QCard = ({ data, handleSelect }) => {
   }, [data]);
 
   return (
-    <div>
+    <div className="q-card">
       <h2>{data.question}</h2>
       <QInput allOptions={allOptions} handleSelect={handleSelect} />
     </div>

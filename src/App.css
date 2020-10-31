@@ -1,9 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&display=swap');
+
 .App {
-  text-align: center;
+  text-align: start;
 }
+
 button.disabled {
   cursor: not-allowed;
 }
-body{
-  
+
+#score-and-reveal{
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
 }
+
+#game-board{
+  display: flex;
+  flex-direction: row;
+}
+
+#start{
+  padding: 10%;  
+}
+
+.q-card{
+  border: 5px solid #37393b;
+  box-shadow: 10px 10px #9ed0c9;
+  overflow: scroll;
+  padding: 3%;
+  height: fit-content;
+  width: 80%;
+  animation: fadeInAnimation ease 1s;
+  animation-iteration-count: 1; 
+  animation-fill-mode: forwards; 
+}
+
+button{
+  margin-top: 5%;
+}
+
+#next-q-btn{
+  margin-left: 50px;
+}
+
+body {
+  height: fit-content;
+  background-color: #fff7f3;
+}
+
+button, h1, h2, h3, h4, p, label{
+  font-family: 'Noto Serif TC', serif;
+}
+
+body, button, h1, h2, h3, h4, p, input, label { 
+  animation: fadeInAnimation ease 1s;
+  animation-iteration-count: 1; 
+  animation-fill-mode: forwards; 
+} 
+
+@keyframes fadeInAnimation { 
+  0% { 
+      opacity: 0; 
+  } 
+  100% { 
+      opacity: 1; 
+   } 
+} 

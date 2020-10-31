@@ -25,19 +25,21 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Tandem Trivia</h1>
-
-      {startGame ? (
-        <GameBoard questions={questions} />
-      ) : (
-        <button
-          type="button"
-          className="btn btn-outline-dark"
-          onClick={funcStart}
-        >
-          Start Playing
-        </button>
-      )}
+      <div id="start">
+      <h1 >Tandem Trivia</h1>
+        {startGame ? (
+          <GameBoard questions={questions} />
+        ) : (
+          <button
+            id="start-btn"
+            type="button"
+            className="btn btn-dark"
+            onClick={funcStart}
+          >
+            Start Playing
+          </button>
+        )}
+      </div>
     </div>
   );
 }

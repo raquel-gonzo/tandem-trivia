@@ -7,6 +7,7 @@ const GameBoard = ({ questions }, shuffle) => {
   const [selectedInput, setSelectedInput] = useState(null);
   const [currentQ, setCurrentQ] = useState(questions[0]); // questions[1]
   const [isAnswered, setIsAnswered] = useState(false);
+  const [isCorrect, setIsCorrect] = useState('');
   const endOfGame = questions.length;
   const nextIndex = questions.indexOf(currentQ) + 1;
 
@@ -19,6 +20,7 @@ const GameBoard = ({ questions }, shuffle) => {
     setSelected("");
     selectedInput.checked = false;
     setIsAnswered(false);
+    setIsCorrect('');
   };
 
   const submitAnswer = (e) => {
@@ -43,52 +45,69 @@ const GameBoard = ({ questions }, shuffle) => {
       setScore(score + 1);
       setIsAnswered(true);
       console.log("correct");
+      setIsCorrect("correct")
     }
     // if the incorrect answer is selected
     if (selected !== currentQ.correct && selected !== "") {
-      console.log("incorrect");
       setIsAnswered(true);
-    }
-    // if no answer is selected
-    if (selected === "") {
-      console.log("please select an answer");
+      console.log("incorrect");
+      setIsCorrect("incorrect")
     }
   };
 
   return (
     <div>
-      <QCard data={currentQ} handleSelect={handleSelect} />
+      <div id="game-board">
+        <QCard data={currentQ} handleSelect={handleSelect} />
+        <div id="score-and-reveal">
+          <h3 id="score">
+            Score: {score} / {questions.length}
+          </h3>
+          { isCorrect === "correct" && isCorrect !== "" ? (
+            <h4>Correct!</h4>
+          ) : (
+            ''
+          )}
+          { isCorrect === "incorrect" && isCorrect !== "" ? (
+            <h4>Incorrect</h4>
+          ) : (
+            ''
+          )}
+        </div>
+      </div>
 
-      {isAnswered && currentQ === questions[endOfGame - 1] ? (
-        ""
-      ) : (
-        <button
-          id="submit"
-          onClick={submitAnswer}
-          className={
-            (!isAnswered && selected === "") || isAnswered
-              ? "btn btn-light disabled"
-              : "btn btn-light"
-          }
-          disabled={(!isAnswered && selected === "") || isAnswered}
-        >
-          Submit Answer
-        </button>
-      )}
-
-      {isAnswered && currentQ !== questions[endOfGame - 1] ? (
-        <div>
+      <div id="bottom-btns">
+        {isAnswered && currentQ === questions[endOfGame - 1] ? (
+          ""
+        ) : (
           <button
+            id="submit"
+            onClick={submitAnswer}
+            className={
+              (!isAnswered && selected === "") || isAnswered
+                ? "btn btn-outline-dark disabled"
+                : "btn btn-dark"
+            }
+            disabled={(!isAnswered && selected === "") || isAnswered}
+          >
+            Submit Answer
+          </button>
+        )}
+
+        {isAnswered && currentQ !== questions[endOfGame - 1] ? (
+          <button
+            id="next-q-btn"
             type="button"
-            className="btn btn-outline-dark"
+            className="btn btn-dark"
             onClick={nextQ}
           >
             Next Question
           </button>
-        </div>
-      ) : (
-        ""
-      )}
+        ) : (
+          ""
+        )}
+      </div>
+
       {questions[nextIndex] === questions[endOfGame] && isAnswered ? (
         <div>
           <p>
@@ -105,10 +124,6 @@ const GameBoard = ({ questions }, shuffle) => {
       ) : (
         ""
       )}
-
-      <h3>
-        Score: {score} / {questions.length}
-      </h3>
     </div>
   );
 };
