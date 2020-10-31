@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import QInput from "./QInput";
 
-const QCard = ({ data, handleSelect, qNum }) => {
+const QCard = ({ data, handleSelect, qNum, rightAns, isAnswered }) => {
   // destructuring props (an object)
   const [allOptions, setAllOptions] = useState([]);
 
@@ -23,7 +23,7 @@ const QCard = ({ data, handleSelect, qNum }) => {
     <div >
       <h2 id="qNum">Question {qNum}</h2>
       <h3>{data.question}</h3>
-      <QInput allOptions={allOptions} handleSelect={handleSelect} />
+      <QInput allOptions={allOptions} handleSelect={handleSelect} isAnswered={isAnswered} rightAns={rightAns}/>
     </div>
   );
 };

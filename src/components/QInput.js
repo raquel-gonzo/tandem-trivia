@@ -1,6 +1,6 @@
 import React from "react";
 
-const QInput = ({ allOptions, handleSelect }) => {
+const QInput = ({ allOptions, handleSelect, rightAns, isAnswered }) => {
   return (
     <div className="form-check">
       {allOptions.map((option, i) => {
@@ -14,7 +14,14 @@ const QInput = ({ allOptions, handleSelect }) => {
               name="option"
               type="radio"
             />
-            <label htmlFor={option} className="form-check-label">
+            <label
+              htmlFor={option}
+              className={
+                (option === rightAns && isAnswered)
+                  ? ("form-check-label reveal-correct")
+                  : ("form-check-label")
+              }
+            >
               {option}
             </label>
           </div>

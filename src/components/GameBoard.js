@@ -7,9 +7,10 @@ const GameBoard = ({ questions }, shuffle) => {
   const [selectedInput, setSelectedInput] = useState(null);
   const [currentQ, setCurrentQ] = useState(questions[0]); // questions[1]
   const [isAnswered, setIsAnswered] = useState(false);
-  const [isCorrect, setIsCorrect] = useState('');
+  const [isCorrect, setIsCorrect] = useState("");
   const endOfGame = 10;
   const nextIndex = questions.indexOf(currentQ) + 1;
+  const rightAns = currentQ.correct;
 
   const handleSelect = (e) => {
     setSelected(e.target.value);
@@ -20,7 +21,7 @@ const GameBoard = ({ questions }, shuffle) => {
     setSelected("");
     selectedInput.checked = false;
     setIsAnswered(false);
-    setIsCorrect('');
+    setIsCorrect("");
   };
 
   const submitAnswer = (e) => {
@@ -45,13 +46,13 @@ const GameBoard = ({ questions }, shuffle) => {
       setScore(score + 1);
       setIsAnswered(true);
       console.log("correct");
-      setIsCorrect("correct")
+      setIsCorrect("correct");
     }
     // if the incorrect answer is selected
     if (selected !== currentQ.correct && selected !== "") {
       setIsAnswered(true);
       console.log("incorrect");
-      setIsCorrect("incorrect")
+      setIsCorrect("incorrect");
     }
   };
 
@@ -59,42 +60,48 @@ const GameBoard = ({ questions }, shuffle) => {
     <div>
       <div id="game-board">
         <div className="q-card">
-        <QCard data={currentQ} handleSelect={handleSelect} qNum={nextIndex}/>
-        {isAnswered && currentQ === questions[endOfGame - 1] ? (
-          ""
-        ) : (
-          <button
-            id="submit"
-            onClick={submitAnswer}
-            className={
-              (!isAnswered && selected === "") || isAnswered
-                ? "btn btn-outline-dark disabled"
-                : "btn btn-dark"
-            }
-            disabled={(!isAnswered && selected === "") || isAnswered}
-          >
-            Submit Answer
-          </button>
-        )}
+          <QCard
+            data={currentQ}
+            handleSelect={handleSelect}
+            qNum={nextIndex}
+            isAnswered={isAnswered}
+            rightAns={rightAns}
+          />
+          {isAnswered && currentQ === questions[endOfGame - 1] ? (
+            ""
+          ) : (
+            <button
+              id="submit"
+              onClick={submitAnswer}
+              className={
+                (!isAnswered && selected === "") || isAnswered
+                  ? "btn btn-outline-dark disabled"
+                  : "btn btn-dark"
+              }
+              disabled={(!isAnswered && selected === "") || isAnswered}
+            >
+              Submit Answer
+            </button>
+          )}
         </div>
         <div id="score-and-reveal">
           <h4 id="score">
-            Score: <br/>
+            Score: <br />
             {score} / {10}
           </h4>
-          { isCorrect === "correct" && isCorrect !== "" ? (
+          {isCorrect === "correct" && isCorrect !== "" ? (
             <span>Correct!</span>
           ) : (
-            ''
+            ""
           )}
-          { isCorrect === "incorrect" && isCorrect !== "" ? (
+          {isCorrect === "incorrect" && isCorrect !== "" ? (
             <span>Incorrect</span>
           ) : (
-            ''
+            ""
           )}
         </div>
       </div>
-{/* ******************************************************************************* */}
+      {/* ******************************************************************************* */}
       <div>
         {isAnswered && currentQ !== questions[endOfGame - 1] ? (
           <button
@@ -109,17 +116,13 @@ const GameBoard = ({ questions }, shuffle) => {
           ""
         )}
       </div>
-{/* ******************************************************************************* */}
+      {/* ******************************************************************************* */}
       {questions[nextIndex] === questions[endOfGame] && isAnswered ? (
         <div>
           <p>
             Thanks for playing! Final Score: {score} / {10}
           </p>
-          <button
-            type="button"
-            className="btn btn-dark"
-            onClick={playAgain}
-          >
+          <button type="button" className="btn btn-dark" onClick={playAgain}>
             Play Again
           </button>
         </div>
