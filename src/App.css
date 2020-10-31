@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&display=swap');
 
 .App {
-  text-align: start;
+  /* text-align: start; */
+  display: flex;
+  justify-content: center;
   font-family: 'Noto Serif TC', serif;
 }
 
@@ -9,30 +11,78 @@ button.disabled {
   cursor: not-allowed;
 }
 
-#score-and-reveal{
-  margin-left: 5%;
+img{
+  width: 75px;
+}
+
+.connect{
+  cursor: pointer;
+}
+
+#footer{
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+p{
+  text-align: center;
+}
+
+#next-q-btn{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 35px;
+  margin-top: 10px;
+}
+
+#is-correct-text {
+  text-decoration: underline #9ed0c9;
+}
+
+#end-screen{
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#is-correct-text {
+  margin: 0;
+  height: 24px;
+}
+
+#score-and-reveal{
+  padding-right: 5%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 
 .reveal-correct{
-  /* border: 2px solid #9ed0c9;
-  border-radius: 2px; */
   background-color: #9ed0c9;
 }
 
 #game-board{
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
 }
 
 #start{
-  padding: 10%;  
+  display: flex;
+  flex-direction: column;
+  padding: 10%;
+  align-items: center;
 }
 
 .q-card{
   border: 5px solid #37393b;
   box-shadow: 10px 10px #9ed0c9;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   overflow: scroll;
   padding: 3%;
   height: fit-content;
@@ -44,6 +94,7 @@ button.disabled {
 
 button{
   margin-top: 5%;
+  width: fit-content;
 }
 
 #qNum{
@@ -56,7 +107,7 @@ body {
 }
 
 
-body, button, h1, h2, h3, h4, span, p, input, label { 
+body, button, h1, h2, h3, h4, span, p, input, label, img { 
   animation: fadeInAnimation ease 1s;
   animation-iteration-count: 1; 
   animation-fill-mode: forwards; 

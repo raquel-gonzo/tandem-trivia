@@ -26,10 +26,11 @@ function App() {
   return (
     <div className="App">
       <div id="start">
-      <h1 >Tandem Trivia</h1>
+      <h1>Tandem Trivia</h1>
         {startGame ? (
           <GameBoard questions={questions} />
         ) : (
+          <>
           <button
             id="start-btn"
             type="button"
@@ -38,6 +39,7 @@ function App() {
           >
             Start Playing
           </button>
+          </>
         )}
       </div>
     </div>

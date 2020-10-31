@@ -2,7 +2,7 @@ import React from "react";
 
 const QInput = ({ allOptions, handleSelect, rightAns, isAnswered }) => {
   return (
-    <div className="form-check">
+    <div className="form-check q-input">
       {allOptions.map((option, i) => {
         return (
           <div key={i}>
@@ -17,13 +17,14 @@ const QInput = ({ allOptions, handleSelect, rightAns, isAnswered }) => {
             <label
               htmlFor={option}
               className={
-                (option === rightAns && isAnswered)
-                  ? ("form-check-label reveal-correct")
-                  : ("form-check-label")
+                option === rightAns && isAnswered
+                  ? "form-check-label reveal-correct"
+                  : "form-check-label"
               }
             >
               {option}
             </label>
+            
           </div>
         );
       })}
