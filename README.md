@@ -26,12 +26,17 @@ This app was created by Rachel Gonzalez for Tandem's apprentice software enginee
 ## Instructions: how to run this code
 1. Open a terminal window and clone this repository by running the following command: `git clone https://github.com/raquel-gonzo/tandem-trivia.git` and press enter. 
 2. Navigate to the `tandem-trivia` directory in the terminal.
-3. Run `npm start` in the terminal to launch the app. 
+3. Run `npm install` to install app dependencies. 
+4. Run `npm start` in the terminal to launch the app. 
+
+## System Dependencies
+The only system dependency needed is [Node.js](https://nodejs.org/en/).
 
 ## Additional Features
 - Order of questions are shuffled every time a game is played. 
 - Order of answers for the corresponding question are shuffled when the question appears.
 - 'Play Again' button appears when game is completed. 
+- Mobile first design.
 - Deployed on netlify. [Play here!](https://tandem-for-400.netlify.app/)
 
 ## Testing 

@@ -31,14 +31,14 @@ function App() {
           <GameBoard questions={questions} />
         ) : (
           <>
-          <button
-            id="start-btn"
-            type="button"
-            className="btn btn-dark"
-            onClick={funcStart}
-          >
-            Start Playing
-          </button>
+            <button
+              id="start-btn"
+              type="button"
+              className="btn btn-dark"
+              onClick={funcStart}
+            >
+              Start Playing
+            </button>
           </>
         )}
       </div>

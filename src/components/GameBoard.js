@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import QCard from "./QCard";
 
-const GameBoard = ({ questions }, shuffle) => {
+const GameBoard = ({ questions }) => {
   const [score, setScore] = useState(0);
   const [selected, setSelected] = useState("");
   const [selectedInput, setSelectedInput] = useState(null);
-  const [currentQ, setCurrentQ] = useState(questions[0]); // questions[1]
+  const [currentQ, setCurrentQ] = useState(questions[0]);
   const [isAnswered, setIsAnswered] = useState(false);
-  const [isCorrect, setIsCorrect] = useState("");
+  const [isCorrect, setIsCorrect] = useState(false);
   const endOfGame = 10;
   const nextIndex = questions.indexOf(currentQ) + 1;
   const rightAns = currentQ.correct;
@@ -21,7 +21,7 @@ const GameBoard = ({ questions }, shuffle) => {
     setSelected("");
     selectedInput.checked = false;
     setIsAnswered(false);
-    setIsCorrect("");
+    setIsCorrect(false);
   };
 
   const submitAnswer = (e) => {
@@ -42,24 +42,22 @@ const GameBoard = ({ questions }, shuffle) => {
 
   const checkAnswer = () => {
     // if the correct answer is selected
+    setIsAnswered(true);
     if (selected === currentQ.correct) {
       setScore(score + 1);
-      setIsAnswered(true);
-      console.log("correct");
-      setIsCorrect("correct");
+      setIsCorrect(true);
     }
     // if the incorrect answer is selected
     if (selected !== currentQ.correct && selected !== "") {
-      setIsAnswered(true);
-      console.log("incorrect");
-      setIsCorrect("incorrect");
+      setIsCorrect(false);
     }
   };
   let isCorrectText = "";
-  if (isCorrect === "correct" && isCorrect !== "") {
-    isCorrectText = "Correct!"
-  } else if (isCorrect === "incorrect" && isCorrect !== "") {
-    isCorrectText = "Incorrect"
+
+  if (isAnswered && isCorrect) {
+    isCorrectText = "Correct!";
+  } else if (isAnswered && !isCorrect) {
+    isCorrectText = "Incorrect";
   }
 
   return (
