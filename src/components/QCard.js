@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import QInput from "./QInput";
+import { shuffle } from "../functions";
 
 const QCard = ({ data, handleSelect, qNum, rightAns, isAnswered }) => {
   // destructuring props (an object)
@@ -7,16 +8,8 @@ const QCard = ({ data, handleSelect, qNum, rightAns, isAnswered }) => {
 
   useEffect(() => {
     const options = [...data.incorrect, data.correct];
-    const shuffleAllOptions = () => {
-      for (var i = options.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = options[i];
-        options[i] = options[j];
-        options[j] = temp;
-      }
-      setAllOptions(options);
-    };
-    shuffleAllOptions();
+    const shuffledOptions = shuffle(options);
+    setAllOptions(shuffledOptions);
   }, [data]);
 
   return (
