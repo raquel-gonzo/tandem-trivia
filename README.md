@@ -1,5 +1,7 @@
 
-[![demo of tandem trivia app.](http://img.youtube.com/vi/_iOVaw-nIzA/0.jpg)](http://www.youtube.com/watch?v=_iOVaw-nIzA "Tandem Trivia Demo")
+<!-- [![demo of tandem trivia app.](http://img.youtube.com/vi/_iOVaw-nIzA/0.jpg)](http://www.youtube.com/watch?v=_iOVaw-nIzA "Tandem Trivia Demo") -->
+
+![thumbnail of trivia game.](https://res.cloudinary.com/raquel-gonzo/image/upload/v1604256093/tandem_demo_thumbnail_midoxy.png)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4d65a510-6168-43ab-b1a7-a52ac08129dd/deploy-status)](https://app.netlify.com/sites/tandem-for-400/deploys)
 
@@ -26,5 +28,11 @@ This app was created by Rachel Gonzalez for Tandem's apprentice software enginee
 2. Navigate to the `tandem-trivia` directory in the terminal.
 3. Run `npm start` in the terminal to launch the app. 
 
+## Additional Features
+- Order of questions are shuffled every time a game is played. 
+- Order of answers for the corresponding question are shuffled when the question appears.
+- 'Play Again' button appears when game is completed. 
+- Deployed on netlify. [Play here!](https://tandem-for-400.netlify.app/)
+
 ## Testing 
-Unit testing
+After researching Tandem, I learned that they love unit testing.
