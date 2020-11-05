@@ -40,4 +40,4 @@ The only system dependency needed is [Node.js](https://nodejs.org/en/).
 - Deployed on netlify. [Play here!](https://tandem-for-400.netlify.app/)
 
 ## Testing 
-After researching Tandem, I learned that they love unit testing.
+After researching Tandem, I learned that they love unit testing. I implemented one test in the App.test.js file for rendering and shuffling.
