@@ -13,6 +13,7 @@ const QInput = ({ allOptions, handleSelect, rightAns, isAnswered }) => {
               className="form-check-input"
               name="option"
               type="radio"
+              disabled={isAnswered}
             />
             <label
               htmlFor={option}
