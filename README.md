@@ -6,7 +6,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4d65a510-6168-43ab-b1a7-a52ac08129dd/deploy-status)](https://app.netlify.com/sites/tandem-for-400/deploys)
 
 # Tandem for 400!
-This app was created by Rachel Gonzalez for Tandem's apprentice software engineer coding challenge (October 2020). Made with React, React Hooks, and Bootstrap.
+This app was created by Rachel Gonzalez for Tandem's apprentice software engineer coding challenge (October 2020). Made with React, React Hooks, Bootstrap, and Cloudinary.
 
 ## Requirements, Criteria, and Assumptions
 
@@ -40,4 +40,4 @@ The only system dependency needed is [Node.js](https://nodejs.org/en/).
 - Deployed on netlify. [Play here!](https://tandem-for-400.netlify.app/)
 
 ## Testing 
-After researching Tandem, I learned that they love unit testing.
+The passing tests for this program are contained in the App.test.js file. It contains two tests: one for rendering the application and one for testing the shuffle function. The shuffle function is passed to two different components and is used to shuffle the order of questions and their corresponding answers. 
