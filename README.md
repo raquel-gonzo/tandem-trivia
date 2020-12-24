@@ -1,7 +1,7 @@
 
 <!-- [![demo of tandem trivia app.](http://img.youtube.com/vi/_iOVaw-nIzA/0.jpg)](http://www.youtube.com/watch?v=_iOVaw-nIzA "Tandem Trivia Demo") -->
 
-![thumbnail of trivia game.](https://res.cloudinary.com/raquel-gonzo/image/upload/v1604256093/tandem_demo_thumbnail_midoxy.png)
+<!-- ![thumbnail of trivia game.](https://res.cloudinary.com/raquel-gonzo/image/upload/v1604256093/tandem_demo_thumbnail_midoxy.png) -->
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4d65a510-6168-43ab-b1a7-a52ac08129dd/deploy-status)](https://app.netlify.com/sites/tandem-for-400/deploys)
 
